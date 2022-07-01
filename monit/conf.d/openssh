@@ -1,0 +1,4 @@
+
+check program github_ssh_test with path /etc/monit/scripts/socket_open.sh "github.com 22" TIMEOUT 15 SECONDS
+    if status != 0 then exec /etc/monit/scripts/slack_notify.sh
+    else if succeeded then exec /etc/monit/scripts/slack_notify.sh

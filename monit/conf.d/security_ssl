@@ -1,0 +1,5 @@
+check program ssl_google_nl with path "/etc/monit/scripts/https_with_tls.sh https://google.nl 200" TIMEOUT 15 SECONDS
+    every 300 cycles
+    if status != 0 
+    then exec /etc/monit/scripts/slack_notify.sh
+    else if succeeded then exec /etc/monit/scripts/slack_notify.sh

@@ -1,0 +1,6 @@
+
+
+check program cert_google_web with path "/etc/monit/scripts/check_cert_date.py google.nl 443 10 true" TIMEOUT 15 SECONDS
+    every 300 cycles
+    if status != 0 then exec /etc/monit/scripts/slack_notify.sh
+    else if succeeded then exec /etc/monit/scripts/slack_notify.sh

@@ -1,0 +1,5 @@
+
+check program zigbee_zigbee2mqtt_online with path "/etc/monit/scripts/mosquitto_topic_content.sh rabbitmq 1883 zigbee2mqtt/bridge/state online" TIMEOUT 15 SECONDS
+    every 4 cycles
+    if status != 0 then exec /etc/monit/scripts/slack_notify.sh
+    else if succeeded then exec /etc/monit/scripts/slack_notify.sh

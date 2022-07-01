@@ -1,0 +1,4 @@
+
+check program alertmanager_no_critical_alerts with path "/etc/monit/scripts/alertmanager_check.sh" TIMEOUT 15 SECONDS
+    if status != 0 for 3 cycles then exec /etc/monit/scripts/slack_notify.sh
+    else if succeeded then exec /etc/monit/scripts/slack_notify.sh

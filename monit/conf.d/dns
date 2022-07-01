@@ -1,0 +1,5 @@
+
+
+check program dns_google with path "/etc/monit/scripts/dns_check.sh google.nl 8.8.8.8" TIMEOUT 15 SECONDS
+    if status != 0 for 2 cycles then exec /etc/monit/scripts/slack_notify.sh
+    else if succeeded then exec /etc/monit/scripts/slack_notify.sh

@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+
+  monit:
+    build: .
+    hostname: monit-meter
+    restart: unless-stopped
+    ports:
+      - "2812:2812"
+    environment:
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL}
+      - SLACK_CHANNEL=${SLACK_CHANNEL}
+    mem_limit: 200m
